@@ -1,0 +1,53 @@
+baseURL: https://rainto.top/
+title: 雨巷
+
+outputs:
+  home: [ "HTML", "RSS", "JSON" ]
+
+markup:
+  highlight:
+    style: gruvbox
+  goldmark:
+    renderer:
+      unsafe: true
+
+menu:
+  main:
+    - name: 首頁
+      pageRef: /
+      weight: 10
+    - name: 归档
+      pageRef: /posts
+      weight: 20
+    - name: 标签
+      pageRef: /tags
+      weight: 30
+    - name: 碎语
+      pageRef: /memo
+      weight: 40
+    - name: 搜索
+      pageRef: /search
+      weight: 50
+    - name: 关于
+      pageRef: /about
+      weight: 60
+
+params:
+  author: "Rainto"
+  ogimage: /img/avantar.png
+  social:
+    - name: RSS
+      link: /index.xml
+      rel: bookmark
+    - name: B站
+      link: https://space.bilibili.com/650313886
+    - name: 网易
+      link: https://music.163.com/#/artist?id=49898034
+    - name: github
+      link: https://github.com/rainto0322
+    - name: email
+      link: mailto:rainto0322@foxmail.com?subject=Hello
+
+taxonomies:
+  category: categories
+  tag: tags

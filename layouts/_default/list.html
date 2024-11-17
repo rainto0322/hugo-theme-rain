@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+{{ $title := "归档" }}
+{{ if eq .Type "categories" }}
+{{ $title := "分类" }}
+{{ end }}
+
+<h3>{{ if eq .Type "categories" }}分类：{{ .Title }}
+  {{ else if eq .Type "tags"}}标签：{{ .Title }}{{ else }}归档{{ end }}
+</h3>
+<nav>
+  {{ range $taxonomy, $terms := site.Taxonomies }}
+  {{ if eq $taxonomy "categories" }}
+  {{ range $terms.ByCount }}
+  <a length="{{ len .Pages }}" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+  {{ end }}
+  {{ end }}
+  {{ end }}
+</nav>
+
+{{ $paginator := .Paginate (.Pages) 6 }}
+{{ range $paginator.Pages }}
+<ul class="posts">
+  <li>
+    <span><time datetime={{.Date}}>{{.Date | time.Format "2006-01-02"}}</time></span>
+    <div>
+      {{ if .Params.draft }}
+      <del>{{ .LinkTitle }}</del>
+      {{ else }}
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+    </div>
+  </li>
+</ul>
+{{ end }}
+
+<div>
+  <span>第&nbsp;{{ $paginator.PageNumber }}&nbsp;/&nbsp;{{ $paginator.TotalPages }}&nbsp;頁</span>&nbsp;
+  {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="prev">上一頁</a>{{ end }}&nbsp;
+  {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="next">下一頁</a>{{ end }}
+</div>
+{{ end }}

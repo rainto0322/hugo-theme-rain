@@ -1,0 +1,10 @@
+<p>
+  {{ range .Site.Params.social }}
+  <span>
+    {{ if .link }}<a href="{{.link}}" target="_blank" rel="{{ if .rel }}{{.rel}}{{else}}external{{ end }}"
+      title="{{.name}}">{{ end }}
+      {{.name}}
+      {{ if .link }}</a>{{ end }}
+  </span>&nbsp;/&nbsp;
+  {{ end }}
+</p>

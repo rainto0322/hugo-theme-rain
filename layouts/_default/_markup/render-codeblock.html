@@ -1,0 +1,16 @@
+{{ $result := transform.HighlightCodeBlock . }}
+<div id="hl-{{.Ordinal}}" class="hl"
+  style="background-color: var(--code);margin-block: 1em;border-radius: 10px;position: relative;overflow:auto;padding-bottom:15px">
+  <div class="meta" style="user-select:none;display:flex;justify-content:space-between;padding: 15px 15px 0;position:sticky;left:0;align-items:center;">
+    <div style="color:#928374;">
+      {{ if .Attributes.file }}<span>{{.Attributes.file}}</span>&nbsp;/{{ end }}
+      <span style="text-transform:uppercase;">{{.Type}}</span>
+    </div>
+    <div class="wrap" onclick="wrap(this)"
+      style="width:12px;height:12px;background:#5f5970;border-radius:50%;margin-inline:auto 10px;"></div>
+    <div class="copy" onclick="copy(this)" style="width:12px;height:12px;background:#5f5970;border-radius:50%;"></div>
+  </div>
+  <pre
+    style="display:grid;"><code class="code" style="margin-block:15px;font-size:0.9rem;tab-size:2;display:block;">{{- $result.Inner -}}</code></pre>
+</div>
+<script>function copy(e){const n=e.parentNode.parentNode.querySelector("code"),o=window.getSelection();o.selectAllChildren(n),document.execCommand("copy"),o.removeAllRanges()}function wrap(e){const n=e.parentNode.parentNode,o=n.querySelector("code"),l=n.querySelector("pre");let t=null;if(l)t=o,n.removeChild(l),n.appendChild(t);else{const e=document.createElement("pre");e.style.display="grid",e.appendChild(o),n.appendChild(e)}}</script>
