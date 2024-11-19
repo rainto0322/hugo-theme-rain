@@ -9,6 +9,7 @@
     const response = await fetch(document.currentScript.getAttribute("path"))
     return await response.json();
   })()
+  const add = (a, b) => { a.appendChild(b) }
   if (!list) return
   const searchResult = $('s-res')
   $('s-txt').focus()
@@ -52,12 +53,12 @@
         itemContent.innerHTML = matchContent + "..."
         itemTitle.className = "s-title"
         itemContent.className = "s-cont"
-        item.appendChild(itemTitle)
-        item.appendChild(itemContent)
-        box.appendChild(item)
+        add(item,itemTitle)
+        add(item,itemContent)
+        add(box,item)
       }
     })
-    searchResult.appendChild(box)
+    add(searchResult,box)
     var num = 0
     let len = searchResult.childNodes.length
     // Keymap
