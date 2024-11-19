@@ -64,8 +64,9 @@ a[aria-current*="page"] {
   border-bottom: 1px solid
 }
 
-.title:hover {
-  border-bottom: none
+.title a{
+  border: none;
+  color: var(--txt);
 }
 
 main {
@@ -190,12 +191,20 @@ ul.tags .number {
   }
 }
 
-#memo .li {
+#memo .m-item {
   margin-top: 3em;
   opacity: 0;
   animation: fade .8s forwards alternate;
 }
 
+#memo .m-item img{
+  min-height: 100px;
+  width: 100%;
+  background-color: var(--gray);
+}
+#memo .m-item p:last-child{
+  margin-bottom: 0.5em;
+}
 .banner {
   min-height: 150px;
 }

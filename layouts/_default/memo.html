@@ -1,4 +1,5 @@
 {{ define "main" }}
 <div id="memo"></div>
-<script>const memo = new Memo({ el: "#memo", url: 'https://api.rainto.top' })</script>
+<script src="/js/memo-min.js"></script>
+<script>const memo = new Memo({ el: "#memo", url: 'https://api.rainto.top', tags: { "daily": "日常水", life: "生活碎片" } })</script>
 {{ end }}

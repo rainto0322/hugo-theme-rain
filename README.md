@@ -3,6 +3,7 @@
 ![rain](./static/favicon.svg)
 <h1>Rain</h1>
 <p>🌷 A simple, tiny, flash hugo theme .</p>
+
 </div>
 
 ## Why use rain?
