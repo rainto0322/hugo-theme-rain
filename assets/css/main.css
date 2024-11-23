@@ -150,7 +150,7 @@ ul.posts {
 
 ul.posts li {
   display: flex;
-  margin: 3px 0
+  margin: 1em 0
 }
 
 ul.posts li span {
@@ -198,12 +198,15 @@ ul.tags .number {
 }
 
 #memo .m-item img{
-  min-height: 100px;
-  width: 100%;
-  background-color: var(--gray);
+  max-width: 100%;
+  opacity: .8;
 }
+
 #memo .m-item p:last-child{
   margin-bottom: 0.5em;
+}
+#memo #memo-more{
+  cursor: grab;
 }
 .banner {
   min-height: 150px;

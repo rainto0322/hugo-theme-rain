@@ -4,7 +4,8 @@ class Memo {
     this.url = option.url
     this.tags = option.tags || {}
     this.img = option.img ? `<img src="${option.img}">` : '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24px" height="30px" fill="#333"><rect x="0" y="0" width="4" height="15"><animate attributeName="opacity" values="1;.2;1" begin="0s" dur="0.6s" repeatCount="indefinite"></animate></rect><rect x="10" y="0" width="4" height="15"><animate attributeName="opacity" values="1;.2;1" begin="0.2s" dur="0.6s" repeatCount="indefinite"></animate></rect><rect x="20" y="0" width="4" height="15"><animate attributeName="opacity" values="1;.2;1" begin="0.4s" dur="0.6s" repeatCount="indefinite"></animate></rect></svg>'
-    this.currentPage = 0
+    this.lazy = option.lazy ? option.lazy : 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLWRhc2hhcnJheT0iMTYiIHN0cm9rZS1kYXNob2Zmc2V0PSIxNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xMiAzYzQuOTcgMCA5IDQuMDMgOSA5Ij48YW5pbWF0ZSBmaWxsPSJmcmVlemUiIGF0dHJpYnV0ZU5hbWU9InN0cm9rZS1kYXNob2Zmc2V0IiBkdXI9IjAuMnMiIHZhbHVlcz0iMTY7MCIvPjxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgZHVyPSIxLjVzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgdHlwZT0icm90YXRlIiB2YWx1ZXM9IjAgMTIgMTI7MzYwIDEyIDEyIi8+PC9wYXRoPjwvc3ZnPg=='
+    this.cpage = 0
     this.init()
   }
 
@@ -30,7 +31,7 @@ class Memo {
   }
 
   async FD() {
-    const response = await fetch(`${this.url}/memo/0/${this.currentPage}/10`)
+    const response = await fetch(`${this.url}/memo/0/${this.cpage}/10`)
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -50,11 +51,24 @@ class Memo {
       this.tags[tag] ? tag = this.tags[tag] : tag = '未分類'
       const memoContent = `<div class="i-cont">${body}</div><div class="i-meta"><time datetime="${date}">${this.T(date)}</time></div>`
       memoItem.innerHTML = memoContent
+      const imgList = memoItem.querySelectorAll('img')
+
+      for (const img of imgList) {
+
+        img.setAttribute('loading', 'lazy')
+        img.setAttribute('data_src', img.src)
+        img.src = this.lazy
+        img.onload = () => {
+          img.src = img.getAttribute('data_src')
+          img.classList.add("loaded");
+        }
+      }
       fragment.appendChild(memoItem)
     }
-    const more=this.$('#memo-more')
 
-    if (this.currentPage + 1 < max) {
+    const more = this.$('#memo-more')
+
+    if (this.cpage + 1 < max) {
       const loadMoreButton = this.create('div');
       loadMoreButton.textContent = 'ʕ•ᴥ•ʔ Click me to load more.';
       loadMoreButton.addEventListener('click', () => {
@@ -71,7 +85,7 @@ class Memo {
   }
 
   loadMore() {
-    this.currentPage += 1;
+    this.cpage += 1;
     this.FD();
   }
 }
