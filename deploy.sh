@@ -17,4 +17,4 @@ git commit -m "Deploy site updates"
 
 git push -f origin main
 
-# vc --prod
+vc --prod
