@@ -18,8 +18,9 @@
 <h3>Follow Me</h3>
 {{ partial "social_media.html" . }}
 <br>
+
+<h3 style="margin-bottom: 0;">近期文章</h3>
 <ul class="posts">
-  <h3 style="margin-bottom: 0;">近期文章</h3>
   {{ $latestPosts := .Site.RegularPages | first 5 }}
   {{ range $latestPosts }}
   <li>

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 hugo build --minify
+cp file/*.html public/
+cp file/*.xml public/
 
 cd public || exit
 
@@ -14,7 +16,6 @@ fi
 # 添加所有更改并提交
 git add .
 git commit -m "Deploy site updates"
-
 git push -f origin main
 
 vc --prod
