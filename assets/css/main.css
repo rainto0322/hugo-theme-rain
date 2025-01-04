@@ -5,21 +5,35 @@ Author: Rainto
 Author URI: https://rainto.top/
 */
 
-@font-face {
-  font-family: "hanyi";
-  src: url("/font/xiawuzhisong.ttf");
+
+@keyframes showImg {
+  from {
+    filter: blur(2px)
+  }
+
+  to {
+    filter: blur(0)
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 :root {
   --font-yahei: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFangSC-Regular", "Hiragino Sans GB", "Lantinghei SC", "Microsoft Yahei", "Source Han Sans CN", "WenQuanYi Micro Hei", SimSun, sans-serif;
   --bg: #fff;
   --txt: #444;
-  /* --link: #3273dc; */
-  --link: #155ac8;
+  --link: #3273dc;
   --head: #222;
-  --code: #282828;
-  --gray: #7c7a7a;
-
+  --code: #1e1e27;
+  --gray: #999;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,14 +54,14 @@ html {
 
 body {
   width: 100%;
-  max-width: 30em;
+  max-width: 40em;
   margin: auto;
   padding: 20px;
   box-sizing: border-box;
   text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  line-height: 1.6;
+  line-height: 2;
   background: var(--bg);
   color: var(--txt);
 }
@@ -65,7 +79,7 @@ a[aria-current*="page"] {
   border-bottom: 1px solid
 }
 
-.title a{
+.title a {
   border: none;
   color: var(--txt);
 }
@@ -76,6 +90,10 @@ main {
 
 img {
   max-width: 100%;
+  border-radius: 10px;
+  display: block;
+  background-color: var(--code);
+  animation:showImg 2s ease-in alternate forwards
 }
 
 pre {
@@ -182,16 +200,6 @@ ul.tags .number {
   box-sizing: border-box;
 }
 
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 #memo .m-item {
   margin-top: 3em;
   opacity: 0;
@@ -199,18 +207,18 @@ ul.tags .number {
 }
 
 #memo .m-item img{
-  max-width: 100%;
-  opacity: .8;
+  width: 100%;
+  min-height: 160px;
+  margin-block: 1em;
+  animation:showImg 4s ease-in alternate forwards
 }
 
-#memo .m-item p:last-child{
-  margin-bottom: 0.5em;
-}
-#memo #memo-more{
+#memo #memo-more {
   cursor: grab;
 }
-.banner {
-  min-height: 150px;
+
+.banner img{
+  min-height: 200px;
 }
 
 footer {

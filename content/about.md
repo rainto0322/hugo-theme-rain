@@ -22,9 +22,9 @@ date = 1998-03-22T08:00:00-07:00
 > 一种异样的寂寞包裹着我，我举目青山，青山稻田凝望着我，凝视着我的灵魂，我战栗地面向他们，面向自己。时光在风中雾里消散，我想要呼喊，渴望哭泣，我希望你能感受到我所感受的万分之一。  
 我希望，你走向我，即使你也词穷语尽，一言不发。
 
-[风清](https://wind.ink) /
-[孤斗](https://d-d.design/) /
+<!-- [风清](https://wind.ink) / -->
 [三輪](https://sanlun.bike) /
+[孤斗](https://d-d.design/) /
 [子舒](https://zishu.me/) /
 [涛叔](https://taoshu.in/) /
 [Eamon](https://fanyiming.life/) /

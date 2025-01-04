@@ -1,56 +1,8 @@
 {{ define "main" }}
-<style>
-  #s-txt {
-    background: transparent;
-    border: 2px solid var(--gray);
-    color: var(--txt);
-    border-radius: 8px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  #s-res {
-    margin-block: 1em;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  #s-res .s-item {
-    background-color: var(--bg);
-    transition: background-color .5s;
-    padding: 15px 10px;
-    border-radius: 5px;
-    display: block;
-    display: block;
-    color: var(--txt);
-    border: 0;
-    outline: 0;
-  }
-
-  #s-res .s-item:hover,
-  #s-res .s-item:focus {
-    outline: 1px solid var(--gray);
-  }
-
-  .s-item .s-title {
-    font-weight: 900;
-    padding-right: 5px;
-    font-size: .9em;
-  }
-
-  .s-item .s-cont {
-    font-size: .85em;
-  }
-
-  .s-item .s-key {
-    color: var(--link);
-  }
-</style>
+<style>#s-txt{background:transparent;border:2px solid var(--gray);color:var(--txt);border-radius:8px;padding:10px;width:100%;box-sizing:border-box}#s-res{margin-block:1em;width:100%;box-sizing:border-box}#s-res .s-item{background-color:var(--bg);transition:background-color .5s;padding:15px 10px;border-radius:5px;display:block;display:block;color:var(--txt);border:0;outline:0}#s-res .s-item:hover,#s-res .s-item:focus{outline:1px solid var(--gray)}.s-item .s-title{font-weight:900;padding-right:5px;font-size:.9em}.s-item .s-cont{font-size:.85em}.s-item .s-key{color:var(--link)}</style>
 <h4>「 搜索 」</h4>
 <p>你能够搜寻我的一切，除了灵魂。</p>
 <input id="s-txt" type="text" placeholder=" ʕ·ᴥ·ʔ  use ↑ / ↓ key up and dowm">
-<div id="s-res">
-  <script src="/js/search.js" path="/index.json" defer="defer"></script>
-</div>
+<div id="s-res"></div>
+<script src="/js/search-min.js" path="/index.json"></script>
 {{ end }}

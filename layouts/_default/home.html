@@ -15,11 +15,11 @@
 
 
 {{ .Content }}
-<h3>Follow Me</h3>
+<h2 style="font-size: 1.3em;">Follow Me</h2>
 {{ partial "social_media.html" . }}
 <br>
 
-<h3 style="margin-bottom: 0;">近期文章</h3>
+<h2 style="margin-bottom: 0;font-size: 1.3em;">近期文章</h2>
 <ul class="posts">
   {{ $latestPosts := .Site.RegularPages | first 5 }}
   {{ range $latestPosts }}

@@ -47,34 +47,36 @@
         const item = cr('a')
         const itemTitle = cr('span')
         const itemContent = cr('span')
+
         item.href = ele.link
         item.className = "s-item"
         itemTitle.innerHTML = matchTitle
         itemContent.innerHTML = matchContent + "..."
         itemTitle.className = "s-title"
         itemContent.className = "s-cont"
-        add(item,itemTitle)
-        add(item,itemContent)
-        add(box,item)
+        add(item, itemTitle)
+        add(item, itemContent)
+        add(box, item)
       }
     })
-    add(searchResult,box)
-    var num = 0
-    let len = searchResult.childNodes.length
-    // Keymap
-    window.addEventListener("keydown", e => {
-      if (e.code === "ArrowDown") {
-        num < len ? num++ : num = 1
-        searchResult.childNodes[num - 1].focus()
-      }
-      if (e.code === "ArrowUp") {
-        num > 1 ? num-- : num = len
-        searchResult.childNodes[num - 1].focus()
-      }
-      if (e.code === "Escape") {
-        $('s-txt').focus()
-      }
-    })
+    add(searchResult, box)
+
   }
+  let num = 0
+  // Keymap
+  window.addEventListener("keydown", e => {
+    let len = $('s-res').childNodes.length
+    if (e.code === "ArrowDown") {
+      num < len ? num++ : num = 1
+      $('s-res').childNodes[num - 1].focus()
+    }
+    if (e.code === "ArrowUp") {
+      num > 1 ? num-- : num = len
+      $('s-res').childNodes[num - 1].focus()
+    }
+    if (e.code === "Escape") {
+      $('s-txt').focus()
+    }
+  })
 
 })()
