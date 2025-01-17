@@ -1,4 +1,8 @@
 baseURL: https://rainto.top/
+languages:
+  en:
+    languageCode: "zh-CN"
+
 title: 雨巷
 
 outputs:

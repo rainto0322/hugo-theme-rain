@@ -93,7 +93,7 @@ img {
   border-radius: 10px;
   display: block;
   background-color: var(--code);
-  animation:showImg 2s ease-in alternate forwards
+  animation: showImg 2s ease-in alternate forwards
 }
 
 pre {
@@ -104,6 +104,7 @@ time {
   color: var(--gray);
   font-size: 0.9rem;
 }
+
 
 del {
   padding-inline: 5px;
@@ -200,24 +201,39 @@ ul.tags .number {
   box-sizing: border-box;
 }
 
+.paginav {
+  margin-block: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.paginav .title {
+  font-size: .8rem;
+  color: var(--gray);
+}
+
+.paginav .next {
+  text-align: right;
+}
+
 #memo .m-item {
   margin-top: 3em;
   opacity: 0;
   animation: fade .8s forwards alternate;
 }
 
-#memo .m-item img{
+#memo .m-item img {
   width: 100%;
   min-height: 160px;
   margin-block: 1em;
-  animation:showImg 4s ease-in alternate forwards
+  animation: showImg 4s ease-in alternate forwards
 }
 
 #memo #memo-more {
   cursor: grab;
 }
 
-.banner img{
+.banner img {
   min-height: 200px;
 }
 

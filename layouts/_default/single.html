@@ -17,4 +17,27 @@
 <div>{{ .Content }}</div>
 {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 
+<div class="paginav">
+  <div class="prev">
+    {{ if .PrevInSection }}
+    <a href="{{ .PrevInSection.RelPermalink }}">
+      <div class="title">« Prev</div>
+      <span>{{ .PrevInSection.Title }}</span>
+    </a>
+    {{ end }}
+  </div>
+  <div class="next">
+    {{ if .NextInSection }}
+    <a href="{{ .NextInSection.RelPermalink }}">
+      <div class="title">Next »</div>
+      <span>{{ .NextInSection.Title }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ if .Store.Get "hasCode" }}
+<style>.hl{background-color:var(--code);margin-block:1em;border-radius:10px;position:relative;overflow:auto;padding-bottom:15px}.hl .meta{user-select:none;display:flex;justify-content:space-between;padding:15px 15px 0;position:sticky;left:0;align-items:center;}.hl .type{text-transform:uppercase}.hl .wrap,.hl .copy{width:12px;height:12px;background:#5f5970;border-radius:50%;transition:background .5s}.hl .wrap{margin-inline:auto 10px;}.hl pre{display:grid;}.hl .code{margin-block:15px;font-size:.9rem;tab-size:2;display:block;}</style>
+<script>function copy(e){const o=e.parentNode.parentNode.querySelector("code"),n=window.getSelection();n.selectAllChildren(o),document.execCommand("copy"),n.removeAllRanges(),e.style.background="#edb23b",setTimeout((()=>{e.style.background="#5f5970"}),1e3)}function wrap(e){const o=e.parentNode.parentNode,n=o.querySelector("code"),t=o.querySelector("pre");let d=null;if(t)d=n,o.removeChild(t),o.appendChild(d);else{const e=document.createElement("pre");e.style.display="grid",e.appendChild(n),o.appendChild(e)}}</script>
+{{ end }}
+
 {{ end }}

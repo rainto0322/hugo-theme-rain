@@ -3,6 +3,9 @@ license = 'MIT'
 licenselink = 'https://github.com/rainto0322/hugo-theme-rain/main/LICENSE'
 description = '🌷 A tiny hugo theme .'
 
+[Language]
+  LanguageCode = 'zh-CN'
+
 # The home page of the theme, where the source can be found
 homepage = 'https://github.com/rainto0322/hugo-theme-rain'
 
