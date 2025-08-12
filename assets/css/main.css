@@ -240,3 +240,51 @@ ul.tags .number {
 footer {
   margin-top: 3em;
 }
+
+/* highlight css */
+.hl {
+  background-color: var(--code);
+  margin-block: 1em;
+  border-radius: 10px;
+  position: relative;
+  overflow: auto;
+  padding-bottom: 15px
+}
+
+.hl .meta {
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px 0;
+  position: sticky;
+  left: 0;
+  align-items: center;
+}
+
+.hl .type {
+  text-transform: uppercase
+}
+
+.hl .wrap,
+.hl .copy {
+  width: 12px;
+  height: 12px;
+  background: #5f5970;
+  border-radius: 50%;
+  transition: background .5s
+}
+
+.hl .wrap {
+  margin-inline: auto 10px;
+}
+
+.hl pre {
+  display: grid;
+}
+
+.hl .code {
+  margin-block: 15px;
+  font-size: .9rem;
+  tab-size: 2;
+  display: block;
+}
