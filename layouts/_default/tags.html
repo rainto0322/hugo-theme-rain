@@ -3,13 +3,11 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 
-
 <ul class="tags">
   {{- range .Pages }}
     <li>
       <span class="anchor">#</span><a href="{{ .RelPermalink }}">{{ .LinkTitle }}<span class="number">{{ len .Pages}}</span></a>
     </li>
   {{- end }}
-
 
 {{ end }}

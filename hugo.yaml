@@ -1,4 +1,5 @@
 baseURL: https://rainto.top/
+description: "rainto"
 languages:
   en:
     languageCode: "zh-CN"
@@ -6,7 +7,7 @@ languages:
 title: 雨巷
 
 outputs:
-  home: [ "HTML", "RSS", "JSON" ]
+  home: ["HTML", "RSS", "JSON"]
 
 markup:
   highlight:
@@ -23,9 +24,6 @@ menu:
     - name: 归档
       pageRef: /posts
       weight: 20
-    - name: 标签
-      pageRef: /tags
-      weight: 30
     - name: 碎语
       pageRef: /memo
       weight: 40
@@ -39,6 +37,7 @@ menu:
 params:
   author: "Rainto"
   ogimage: /img/avantar.png
+  description: "只愿做个闲散的人"
   social:
     - name: RSS
       link: /index.xml
@@ -47,9 +46,9 @@ params:
       link: https://space.bilibili.com/650313886
     - name: 网易
       link: https://music.163.com/#/artist?id=49898034
-    - name: github
+    - name: GIT
       link: https://github.com/rainto0322
-    - name: email
+    - name: EMAIL
       link: mailto:rainto0322@foxmail.com?subject=Hello
 
 taxonomies:

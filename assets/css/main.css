@@ -47,7 +47,7 @@ Author URI: https://rainto.top/
 
 html {
   font-family: var(--font-yahei);
-  font-size: 17px;
+  font-size: 15px;
   scroll-behavior: smooth;
   background: var(--bg);
 }
@@ -61,7 +61,7 @@ body {
   text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  line-height: 2;
+  line-height: 2em;
   background: var(--bg);
   color: var(--txt);
 }
@@ -82,6 +82,7 @@ a[aria-current*="page"] {
 .title a {
   border: none;
   color: var(--txt);
+  font-size: 1.25em;
 }
 
 main {
@@ -103,7 +104,6 @@ pre {
 
 time {
   color: var(--gray);
-  font-size: 0.9rem;
 }
 
 
@@ -123,15 +123,16 @@ blockquote {
 
 h1,
 h2 {
-  font-size: 1.7rem;
+  font-size: 1.2em;
   color: var(--head);
-  display: inherit
+  margin-block: 1.5rem 1rem;
 }
 
 h3,
 h4,
 h5,
 h6 {
+  font-size: 1.2em;
   color: var(--head);
   display: inherit
 }
@@ -171,7 +172,7 @@ ul.posts {
 
 ul.posts li {
   display: flex;
-  margin: 1em 0
+  margin: 1em 0;
 }
 
 ul.posts li span {

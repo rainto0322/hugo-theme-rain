@@ -10,8 +10,8 @@
 {{- $description := "" -}}
 {{ $date := .Date | time.Format ":date_long" }}
 
-{{- if .Params.desc -}}
-{{- $desc = .Params.desc -}}
+{{- if .Params.description -}}
+{{- $description = .Params.description -}}
 {{- else if .IsPage -}}
 {{- $description = (slicestr .Plain 0 50) -}}
 {{- end -}}
