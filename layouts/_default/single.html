@@ -5,7 +5,7 @@
   <img src="{{.Params.img}}" alt="{{ .Title }}">
 </div>
 {{ end }}
-<h1>{{ .Title }}</h1>
+<h1 id="p-tit">{{ .Title }}</h1>
 {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
 {{ $dateHuman := .Date | time.Format ":date_long" }}
 <div>
@@ -13,6 +13,7 @@
   <span></span><a href={{ "categories/" | relURL }}{{ . | urlize }}>{{ . }}</a>&nbsp;/&nbsp;</span>
   {{ end }}
   <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  <span id="view"></span>
 </div>
 <div>{{ .Content }}</div>
 {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
@@ -35,8 +36,8 @@
     {{ end }}
   </div>
 </div>
-{{ if .Store.Get "hasCode" }}
-<script>function copy(e){const o=e.parentNode.parentNode.querySelector("code"),n=window.getSelection();n.selectAllChildren(o),document.execCommand("copy"),n.removeAllRanges(),e.style.background="#edb23b",setTimeout((()=>{e.style.background="#5f5970"}),1e3)}function wrap(e){const o=e.parentNode.parentNode,n=o.querySelector("code"),t=o.querySelector("pre");let d=null;if(t)d=n,o.removeChild(t),o.appendChild(d);else{const e=document.createElement("pre");e.style.display="grid",e.appendChild(n),o.appendChild(e)}}</script>
-{{ end }}
+
+{{ partial "script/code.html" . }}
+{{ partial "script/view.html" . }}
 
 {{ end }}

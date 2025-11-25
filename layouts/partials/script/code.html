@@ -1,0 +1,35 @@
+{{ if .Store.Get "hasCode" }}
+<script>
+    function copy(button) {
+        const codeBlock = button.parentNode.parentNode.querySelector("code");
+        const selection = window.getSelection();
+
+        selection.selectAllChildren(codeBlock);
+        document.execCommand("copy");
+        selection.removeAllRanges();
+
+        button.style.background = "#edb23b";
+
+        setTimeout(() => {
+            button.style.background = "var(--gray)";
+        }, 1000);
+    }
+
+    function wrap(button) {
+        const container = button.parentNode.parentNode;
+        const codeElement = container.querySelector("code");
+        const preElement = container.querySelector("pre");
+        let codeContent = null;
+
+        if (preElement) {
+            codeContent = codeElement;
+            container.removeChild(preElement);
+            container.appendChild(codeContent);
+        } else {
+            const pre = document.createElement("pre");
+            pre.appendChild(codeElement);
+            container.appendChild(pre);
+        }
+    }
+</script>
+{{ end }}

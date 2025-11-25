@@ -1,0 +1,15 @@
+{{/* shortcodes/card.html
+@Author: Rainto0322
+
+@params0 {rbody} Ruby Annotation Tag.
+@params1 {rt} Ruby Text Tag.
+
+@example: {{< ruby "漢字" "hàn zì">}} */}}
+
+    <div class="link">
+        {{ if .Get "img"}}
+        <img src="">
+        {{ end }}
+        <title>{{ .Get "title" }}</title>
+        <p>{{ .Get "content" }}</p>
+    </div>

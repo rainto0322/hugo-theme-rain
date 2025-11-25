@@ -28,12 +28,12 @@ Author URI: https://rainto.top/
 
 :root {
   --font-yahei: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFangSC-Regular", "Hiragino Sans GB", "Lantinghei SC", "Microsoft Yahei", "Source Han Sans CN", "WenQuanYi Micro Hei", SimSun, sans-serif;
-  --bg: #fff;
-  --txt: #444;
+  --bg: #FEFDFF;
+  --txt: #111;
   --link: #3273dc;
   --head: #222;
-  --code: #1e1e27;
-  --gray: #999;
+  --code: #f8f5f2;
+  --gray: #6b6b6b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,7 +42,15 @@ Author URI: https://rainto.top/
     --txt: #ddd;
     --link: #6ab0e5;
     --head: #eee;
+    --code: #212121;
+    --gray: #999;
   }
+}
+
+*::selection {
+  background-color: var(--link);
+  color: var(--bg);
+  box-sizing: border-box;
 }
 
 html {
@@ -98,14 +106,13 @@ img {
   animation: showImg 2s ease-in alternate forwards
 }
 
-pre {
-  margin: 0;
-}
-
 time {
   color: var(--gray);
 }
 
+ruby rt {
+  font-size: 10px;
+}
 
 del {
   padding-inline: 5px;
@@ -203,6 +210,15 @@ ul.tags .number {
   box-sizing: border-box;
 }
 
+#view {
+  padding-left: 5px;
+  color: var(--gray);
+}
+
+.shade {
+  animation: fade .8s forwards alternate;
+}
+
 .paginav {
   margin-block: 3rem;
   display: flex;
@@ -247,10 +263,9 @@ footer {
 .hl {
   background-color: var(--code);
   margin-block: 1em;
-  border-radius: 10px;
+  border-radius: .3em;
   position: relative;
-  overflow: auto;
-  padding-bottom: 15px
+  overflow: hidden;
 }
 
 .hl .meta {
@@ -264,6 +279,7 @@ footer {
 }
 
 .hl .type {
+  font-size: 13px;
   text-transform: uppercase
 }
 
@@ -271,7 +287,7 @@ footer {
 .hl .copy {
   width: 12px;
   height: 12px;
-  background: #5f5970;
+  background: var(--gray);
   border-radius: 50%;
   transition: background .5s
 }
@@ -282,11 +298,38 @@ footer {
 
 .hl pre {
   display: grid;
+  margin: 0;
+}
+
+.hl .c-wrap {
+  position: relative;
 }
 
 .hl .code {
-  margin-block: 15px;
+  display: block;
+  padding-bottom: 15px;
   font-size: .9rem;
   tab-size: 2;
-  display: block;
+  overflow-x: auto;
+}
+
+
+.hl .code::before,
+.hl .code::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 18px;
+  pointer-events: none;
+}
+
+.hl .code::before {
+  left: 0;
+  background: linear-gradient(to right, var(--code) 0%, #14141400 100%);
+}
+
+.hl .code::after {
+  right: 0;
+  background: linear-gradient(to left, var(--code) 0%, #14141400 100%);
 }

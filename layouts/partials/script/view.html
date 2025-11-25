@@ -1,0 +1,24 @@
+<script>
+    const cuteTxt = (views) => {
+        const phrases = [
+            `👀 ${views} 双眼偷偷看过`,
+            `🐱 小猫鼻子蹭 ${views} 下`,
+            `🐶 小狗绕你转 ${views} 圈`,
+            `✨ 魔法生效 ${views} 次`,
+            `🍰 蛋糕被咬 ${views} 口`,
+        ];
+        return phrases[Math.floor(Math.random() * phrases.length)];
+    }
+
+    const getView = async () => {
+        const pathName = document.getElementById('p-tit').innerText
+        const view = document.getElementById('view')
+        const { ok, path, time } = await fetch(`https://api.rainto.top/view/?path=${pathName}`).then(e => e.json())
+        if (ok) {
+            view.innerText = cuteTxt(time)
+            view.classList.add("shade")
+        }
+    }
+
+    getView()
+</script>

@@ -1,0 +1,20 @@
+{{/* shortcodes/ruby.html
+@Author: Rainto0322
+
+@params0 {rbody} Ruby Annotation Tag.
+@params1 {rt} Ruby Text Tag.
+
+@example: {{< ruby "漢字" "hàn zì">}}
+    */}}
+
+    {{- if lt (len .Params) 2 -}}
+    {{- errorf "ruby短代码需要至少2个参数（文本和注音），当前参数：%v" .Params -}}
+    {{- end -}}
+
+    {{- $rbody := index .Params 0 -}}
+    {{- $rt := index .Params 1 -}}
+
+    <ruby>
+        {{- $rbody | safeHTML -}}
+        <rt>{{- $rt -}}</rt>
+    </ruby>

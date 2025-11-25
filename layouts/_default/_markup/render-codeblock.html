@@ -8,6 +8,8 @@
     <div class="wrap" onclick="wrap(this)"></div>
     <div class="copy" onclick="copy(this)"></div>
   </div>
-  <pre><code class="code">{{- $result.Inner -}}</code></pre>
+  <div class="c-wrap">
+    <pre><code class="code">{{- $result.Inner -}}</code></pre>
+  </div>
 </div>
 {{ .Page.Store.Set "hasCode" true }}

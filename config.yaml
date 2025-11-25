@@ -37,7 +37,7 @@ menu:
 params:
   author: "Rainto"
   ogimage: /img/avantar.png
-  description: "只愿做个闲散的人"
+  description: "只愿做个闲散的人。"
   social:
     - name: RSS
       link: /index.xml
