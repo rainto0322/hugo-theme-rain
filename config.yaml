@@ -11,7 +11,8 @@ outputs:
 
 markup:
   highlight:
-    style: gruvbox
+    style: rose-pine
+    lineNos: true
   goldmark:
     renderer:
       unsafe: true

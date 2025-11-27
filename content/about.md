@@ -23,10 +23,8 @@ description = "who am i ?"
 ## 鸣谢
 - 静态网站生成器　→　[hugo](https://gohugo.io/)
 - 碎碎念面板　→　[nota](https://github.com/rainto0322/Nota) + [vercel](https://vercel.com/rainto0322)
-- 图片灯箱（待添加）　→　[ViewImage](https://tokinx.github.io/ViewImage/)
+- 图片灯箱　→　[ViewImage](https://tokinx.github.io/ViewImage/)
 
-
-## 我的互联网邻居
 
 [风清](https://wind.ink) /
 [三輪](https://sanlun.bike) /

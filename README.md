@@ -14,3 +14,6 @@
 
 # Overview
 ![overview](./assets/img/overview.png)
+
+# Markup theme
+> [Theme List](https://xyproto.github.io/splash/docs/all.html)

@@ -1,14 +1,14 @@
 {{ $result := transform.HighlightCodeBlock . }}
 <div id="hl-{{.Ordinal}}" class="hl">
-  <div class="meta">
-    <div style="color:#928374;">
-      {{ if .Attributes.file }}<span>{{.Attributes.file}}</span>&nbsp;/{{ end }}
+  <div class="hl-meta">
+    <div class="hl-file">
       <span class="type">{{.Type}}</span>
+      {{ if .Attributes.file }}<span> / {{ .Attributes.file }}</span>{{ end }}
     </div>
-    <div class="wrap" onclick="wrap(this)"></div>
-    <div class="copy" onclick="copy(this)"></div>
+    <div class="wrap" onclick="code_wrap(this)"></div>
+    <div class="copy" onclick="code_copy(this)"></div>
   </div>
-  <div class="c-wrap">
+  <div class="hl-wrap">
     <pre><code class="code">{{- $result.Inner -}}</code></pre>
   </div>
 </div>
